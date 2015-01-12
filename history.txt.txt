@@ -1,0 +1,16 @@
+2015-01-31
+	* 修改hostname 修改默认时区和默认地区
+	* 移植MT2716无线驱动到OpenWrt 14.7 Barrier_Breaker
+	* 添加Yunhu-T1.dts	target/linux/ramips/dts/Yunhu-T1.dts
+				target/linux/ramips/image/Makefile
+	* 添加Yunhu-T1 switch
+	* 添加Yunhu-T1 默认led配置
+	* 添加platform.sh 添加boardname
+	* 添加diag.sh	添加拨号时候的led状态
+	
+	* 移植MT7620a驱动
+		* 添加rt_flash.c, Makefile中增加编译rt_flash.o
+		* 修改rt_proc.c
+	* 移植MT7612e驱动
+		* 修改rt_proc.c
+	* 添加MT7612 eeprom
