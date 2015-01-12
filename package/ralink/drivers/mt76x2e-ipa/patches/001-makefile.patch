@@ -1,0 +1,57 @@
+Index: mt7612e_mt7602e_LinuxAP_3.0.2.9_iPA_20140103/rlt_wifi_ap/Makefile
+===================================================================
+--- mt7612e_mt7602e_LinuxAP_3.0.2.9_iPA_20140103.orig/rlt_wifi_ap/Makefile
++++ mt7612e_mt7602e_LinuxAP_3.0.2.9_iPA_20140103/rlt_wifi_ap/Makefile
+@@ -1,7 +1,6 @@
+-EXTRA_CFLAGS = -Idrivers/net/wireless/rlt_wifi/include \
+-		-Idrivers/net/wireless/rlt_wifi/ate/include
++EXTRA_CFLAGS = -I$(src)/../rlt_wifi/include -I$(src)/../rlt_wifi/ate/include
+ 
+-DRV_NAME = rlt_wifi
++DRV_NAME = mt76x2e
+ RT_WIFI_DIR = ../rlt_wifi
+ 
+ ########################################################
+@@ -538,7 +537,7 @@ endif
+ #
+ # Root 
+ #
+-obj-$(CONFIG_RLT_AP_SUPPORT) += $(DRV_NAME).o
++obj-m += $(DRV_NAME).o
+ 
+ $(DRV_NAME)-objs += $(cmm_objs) $(asic_objs) $(chip_objs) $(rate_objs)\
+                     $(spec_objs) $(func_objs) $(ap_objs) $(os_objs)
+@@ -615,3 +614,33 @@ endif
+ #endif
+ 
+ 
++EXTRA_CFLAGS += -DCONFIG_RT_FIRST_CARD=$(CONFIG_RT_FIRST_CARD)
++EXTRA_CFLAGS += -DCONFIG_RT_SECOND_CARD=$(CONFIG_RT_SECOND_CARD)
++
++EXTRA_CFLAGS += -DCONFIG_RT_FIRST_IF_RF_OFFSET=$(CONFIG_RT_FIRST_IF_RF_OFFSET)
++EXTRA_CFLAGS += -DCONFIG_RT_SECOND_IF_RF_OFFSET=$(CONFIG_RT_SECOND_IF_RF_OFFSET)
++
++ifeq ($(CONFIG_FIRST_IF_EEPROM_PROM),y)
++EXTRA_CFLAGS += -DCONFIG_RT_FIRST_CARD_EEPROM="\"prom\""
++else
++ifeq ($(CONFIG_FIRST_IF_EEPROM_EFUSE),y)
++EXTRA_CFLAGS += -DCONFIG_RT_FIRST_CARD_EEPROM="\"efuse\""
++else
++ifeq ($(CONFIG_FIRST_IF_EEPROM_FLASH),y)
++EXTRA_CFLAGS += -DCONFIG_RT_FIRST_CARD_EEPROM="\"flash\""
++endif
++endif
++endif
++
++ifeq ($(CONFIG_SECOND_IF_EEPROM_PROM),y)
++EXTRA_CFLAGS += -DCONFIG_RT_SECOND_CARD_EEPROM="\"prom\""
++else
++ifeq ($(CONFIG_SECOND_IF_EEPROM_EFUSE),y)
++EXTRA_CFLAGS += -DCONFIG_RT_SECOND_CARD_EEPROM="\"efuse\""
++else
++ifeq ($(CONFIG_SECOND_IF_EEPROM_FLASH),y)
++EXTRA_CFLAGS += -DCONFIG_RT_SECOND_CARD_EEPROM="\"flash\""
++endif
++endif
++endif
++
