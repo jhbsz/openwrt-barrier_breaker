@@ -203,6 +203,10 @@ case $board in
 		set_usb_led "wr8305rt:usb"
 		set_wifi_led "wr8305rt:wifi"
 		;;
+	Yunhu-T1)
+		ucidef_set_led_default "power" "power" "yunhu:red:power" "1"
+		ucidef_set_led_netdev "internet" "internet" "yunhu:blue:internet" "eth0.2"
+		;;
 	y1 |\
 	y1s)
 		ucidef_set_led_default "power" "power" "lenovo:blue:power" "1"

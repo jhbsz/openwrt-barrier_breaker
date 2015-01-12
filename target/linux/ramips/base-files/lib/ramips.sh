@@ -325,6 +325,9 @@ ramips_board_detect() {
 	*"ZBT WR8305RT")
 		name="wr8305rt"
 		;;
+	*"Yunhu T1")
+		name="Yunhu-T1"
+		;;
 	*"Lenovo Y1")
 		name="y1"
 		;;
