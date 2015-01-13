@@ -23,7 +23,7 @@
 
 		gpio1: gpio@638 {
 			status = "okay";
-		}
+		};
 
 		gpio2: gpio@660 {
 			status = "okay";
