@@ -21,6 +21,10 @@
 			status = "okay";
 		};
 
+		gpio1: gpio@638 {
+			status = "okay";
+		}
+
 		gpio2: gpio@660 {
 			status = "okay";
 		};
@@ -112,11 +116,11 @@
 		compatible = "gpio-leds";
 		power {
 			label = "yunhu:red:power";
-			gpios = <&gpio0 9 1>;
+			gpios = <&gpio0 11 0>;
 		};
-		wan {
-			label = "yunhu:blue:wan";
-			gpios = <&gpio2 11 1>;
+		internet {
+			label = "yunhu:blue:internet";
+			gpios = <&gpio1 15 0>;
 		};
 	};
 
@@ -127,7 +131,7 @@
 		poll-interval = <20>;
 		reset {
 			label = "reset";
-			gpios = <&gpio0 13 1>;
+			gpios = <&gpio0 13 0>;
 			linux,code = <0x101>;
 		};
 	};
