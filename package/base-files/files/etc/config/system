@@ -10,3 +10,15 @@ config timeserver ntp
 	list server	3.openwrt.pool.ntp.org
 	option enabled 1
 	option enable_server 0
+
+config led
+        option name 'power'
+        option sysfs 'yunhu:red:power'
+        option trigger 'none'
+        option default '1'
+
+config led
+        option name 'internet'
+        option sysfs 'yunhu:blue:internet'
+        option trigger 'none'
+        option default '1'
