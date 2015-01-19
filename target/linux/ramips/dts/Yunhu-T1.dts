@@ -116,11 +116,11 @@
 		compatible = "gpio-leds";
 		power {
 			label = "yunhu:red:power";
-			gpios = <&gpio0 11 0>;
+			gpios = <&gpio2 53 0>;
 		};
 		internet {
 			label = "yunhu:blue:internet";
-			gpios = <&gpio1 15 0>;
+			gpios = <&gpio1 52 0>;
 		};
 	};
 
