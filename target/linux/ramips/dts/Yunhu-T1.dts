@@ -21,10 +21,6 @@
 			status = "okay";
 		};
 
-		gpio1: gpio@638 {
-			status = "okay";
-		};
-
 		gpio2: gpio@660 {
 			status = "okay";
 		};
@@ -116,11 +112,11 @@
 		compatible = "gpio-leds";
 		power {
 			label = "yunhu:red:power";
-			gpios = <&gpio2 53 0>;
+			gpios = <&gpio2 53 1>;
 		};
 		internet {
 			label = "yunhu:blue:internet";
-			gpios = <&gpio1 52 0>;
+			gpios = <&gpio2 52 1>;
 		};
 	};
 
